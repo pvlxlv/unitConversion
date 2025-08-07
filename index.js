@@ -18,9 +18,21 @@ inputEl.value = inputNum
 
 renderUnits()
 
+//Input checking
+inputEl.addEventListener('keydown', (event) => {
+    let value = event.target.value
+
+    console.log('Input value confirmed (after blur):', value);
+    if (value === "00" ||value === "000" || value === "0000" ) {
+        value = "0"
+    }
+    inputEl.value = value
+});
+
 
 buttonEl.addEventListener("click", function(){
-    inputNum = inputEl.value
+    inputNum = parseInt(inputEl.value, 10)
+    //inputNum = inputEl.value
     renderUnits()
 })
 
